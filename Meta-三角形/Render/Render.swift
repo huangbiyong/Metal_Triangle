@@ -41,7 +41,7 @@ class Render: NSObject {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertextFuncion
         pipelineDescriptor.fragmentFunction = fragmentFuncion
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm // 设置颜色的像素格式为32位
         
         do {
             pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
@@ -73,7 +73,7 @@ extension Render: MTKViewDelegate {
         commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: verters.count)
         commandEncoder?.endEncoding()
         
-        commandBuffer?.present(drawable) //呈現出來
-        commandBuffer?.commit() // 命令終結
+        commandBuffer?.present(drawable) //
+        commandBuffer?.commit() // 
     }
 }
